@@ -1,17 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans|Oswald');
+
+body {
+  background-color: #fdf8ed;
+}
 .App {
   text-align: center;
+  height: 100%;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
+   animation: App-logo-spin infinite 20s linear;
+   height: 40vmin;
+ }
 
 .App-header {
-  min-height: 100vh;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
-  font-size: calc(10px + 2vmin);
+  font-size: 1.5em;
+  color: #561125;
+  font-family: 'Oswald', sans-serif;
 }
 
 .App-link {
@@ -28,22 +36,103 @@
 }
 
 
-li{
+.menu li{
+  display:inline-block;
+  vertical-align: top;
+  margin: auto;
+  padding: 5px;
+  width: 100%;
+}
+
+.underline {
+  border-bottom: 1px solid #fdf8ed;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.menu {
+  border: 2px solid white;
+  margin: auto;
+  background-color: #561125;
+  width: 200px;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  margin-top: 10px;
+}
+
+.content {
+  margin: auto;
+  width: 70%;
+  text-align: center;
+  color: #561125;
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 100px;
+}
+
+.chart {
+  margin: auto;
+}
+
+.explanation-container {
+  width: 200px;
+  margin: auto;
+  text-align: left;
+}
+
+.explanation-text {
+  padding-left: 30px;
+}
+
+.square1 {
+  background-color: #ec732f;
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin-top: 5px;
+}
+
+
+.square2 {
+  margin-top: 5px;
+  background-color: #f88c20;
+  width: 20px;
+  height: 20px;
+  float: left;
+}
+
+.challenges-list {
   display:inline-block;
   vertical-align: top;
   width: 50%;
   margin: auto;
+  padding: 5px;
+  width: 100%;
+  padding: 10px;
 }
 
-li a {
-  text-decoration: none;
-  color: black;
+.challenges-list li {
+  list-style-type: none;
+  text-align: left;
+  color: white;
+  background-color: #561125;
+  padding: 5px;
+  font-size: 18px;
 }
 
-.menu {
-  border: 2px solid black;
-  margin: auto;
-  background-color: aliceblue;
-  width: 200px;
-  padding: 0;
+.checkMark {
+  width: 15px;
+  height: 15px;
+  margin-left: 10px;
+}
+
+.dropdown {
+  background-color: #ec732f;
+  width: 120px;
+  height: 25px;
+  border: 0px;
+  color: white;
+  font-size: 18px;
 }

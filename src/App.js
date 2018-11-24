@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Home from './Containers/Home'
 import User from './Containers/User'
+import Challenges from './Containers/Challenges'
 
 class App extends Component {
 
@@ -24,12 +25,14 @@ class App extends Component {
           <BrowserRouter>
             <div>
               <ul className="menu">
-                <li><NavLink exact to="/">Home</NavLink> </li>
-                <li><NavLink to="/user">User</NavLink></li>
+                <li className={'underline'}><NavLink exact to="/">You</NavLink> </li>
+                <li className={'underline'}><NavLink to="/user">Compare</NavLink></li>
+                  <li><NavLink to="/challenges">Challenges</NavLink></li>
               </ul>
-              <div className="content">
+              <div>
                 <Route exact path="/" component={Home} />
                 <Route path="/user" component={User} />
+                  <Route path="/challenges" component={Challenges} />
               </div>
             </div>
           </BrowserRouter>
