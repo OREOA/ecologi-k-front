@@ -5,10 +5,10 @@ class Header extends Component {
         return (
             <header className="App-header">
                 <div className={'titlecontainer'}>
-                    <h2 className={'header'}>
+                    <span className={'header'}>
                         ECOLOGI-
-                    </h2>
-                    <img className='headerlogo' src={require('../resources/kesko.png')} />
+                    </span>
+                    <img className='headerlogo' src={require('../resources/logo-k.svg')} />
                 </div>
             </header>
         );

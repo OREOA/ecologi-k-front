@@ -1,23 +1,56 @@
 import React, { Component } from 'react';
-import {XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries, RadialChart} from 'react-vis';
+import { getChallenges, getChallengeResults } from '../helpers/utils'
+import Header from './Header'
+import Collapsible from 'react-collapsible'
 
 class Challenges extends Component {
+
+    constructor() {
+        super()
+        this.state = {
+            challenges: [{
+                id: 'foo',
+                title: 'Vegan-Week',
+                description: '',
+            }, {
+                id: 'bar',
+                title: 'Month Straight Local Food',
+                description: '',
+            }, {
+                id: 'bah',
+                title: '3 months without plastic bags',
+                description: '',
+            }],
+            results: [],
+        }
+    }
+
+    componentDidMount() {
+        getChallenges()
+            .then(({ data }) => {
+                this.setState({
+                    challenges: data,
+                })
+            })
+        getChallengeResults()
+            .then(({ data }) => {
+                this.setState({
+                    results: data,
+                })
+            })
+    }
+
     render() {
-        const myData = [{angle: 1, color: '#ec732f'}, {angle: 5, color: '#f88c20'}]
+        const { challenges } = this.state
         return (
             <div className="App">
-                <header className="App-header">
-                    <h2 className={'subheader'}>
-                        Challenges
-                    </h2>
-                </header>
                 <div className="content">
-                    <p>Guidelines and challenges to track your enviromental process</p>
-                  <ul className='challenges-list'>
-                      <li className={'underline'}>Vegan-Week <img className='checkMark' src={require('../resources/greencheck.png')} /></li>
-                      <li className={'underline'}>Month Straight Local Food</li>
-                      <li>3 months without plastic bags</li>
-                  </ul>
+                    <p>Guidelines and challenges to track your environmental process</p>
+                    {challenges.map((c) => (
+                        <Collapsible trigger={c.title}>
+                            <p>Lorem ipsum dolor sit amet</p>
+                        </Collapsible>
+                    ))}
                 </div>
             </div>
         );

@@ -1,12 +1,14 @@
 import axios from 'axios';
 
-export function getStatisticsfForOne() {
-    return (axios.get('http://ec2-18-184-116-86.eu-central-1.compute.amazonaws.com:3001/api/purchases/getDomesticRatio/9001'))
+const URL = 'http://ec2-18-184-116-86.eu-central-1.compute.amazonaws.com:3001'
+
+const userId = 9001
+
+export function getStatisticsForOne() {
+    return (axios.get(`${URL}/api/purchases/getDomesticRatio/9001`))
 }
 
-
-
-export const getStatisticsfForAll = axios.get('/all')
+export const getStatisticsForAll = axios.get('/all')
     .then(function (response) {
         // handle success
         console.log(response);
@@ -20,5 +22,13 @@ export const getStatisticsfForAll = axios.get('/all')
     });
 
 export function getProducts() {
-    return (axios.get('http://ec2-18-184-116-86.eu-central-1.compute.amazonaws.com:3001/api/purchases/getDomesticRatio/9001'))
+    return axios.get(`${URL}/api/purchases/getDomesticRatio/${userId}`)
+}
+
+export function getChallenges() {
+    return axios.get(`${URL}/api/challenges`)
+}
+
+export function getChallengeResults() {
+    return axios.get(`${URL}/api/results/${userId}`)
 }

@@ -8,7 +8,7 @@ body {
 .App {
   text-align: center;
   height: 100%;
-  background-color: #fdf8ed;
+  background-color: #FFFFFF;
   width: 375px;
 }
 
@@ -18,8 +18,7 @@ body {
  }
 
 .App-header {
-  min-height: 200px;
-  font-size: 1.5em;
+  height: 70px;
   color: #561125;
   font-family: 'Oswald', sans-serif;
   display: flex;
@@ -42,13 +41,8 @@ body {
 
 .menu li{
   display:inline-block;
-  vertical-align: top;
-  margin: auto;
-  margin-top: 10px;
-  padding: 5px;
-  width: 30%;
   font-size: 16px;
-
+  flex: 1;
 }
 
 .rightline {
@@ -57,17 +51,55 @@ body {
 
 .menu li a {
   text-decoration: none;
-  color: #ffffff;
 }
 
 .menu {
-  border: 2px solid white;
   margin: auto;
-  background-color: #561125;
+  background-color: #ff6900;
   width: 100%;
   padding: 0;
   font-family: 'Lato', sans-serif;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.menu .dropdown {
+  flex: 0 0 auto;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  outline: 0;
+  border: 0;
   height: 50px;
+  background-color: #fff;
+  cursor: pointer;
+  color: #cc3524;
+  border-radius: 4px;
+  margin: 0 12px;
+  padding: 0 20px;
+  width: auto;
+}
+
+.menu .dropdown__content {
+  background-color: #FFF;
+  top: 100%;
+  left: 0;
+  min-width: 100%;
+  margin-top: 4px;
+  border-radius: 4px;
+}
+
+.menu .dropdown__content ul {
+  padding: 0;
+}
+
+.menu .dropdown__content li {
+  display: block;
+  height: 36px;
+  text-align: left;
+  padding: 0 16px;
 }
 
 .content {
@@ -149,21 +181,20 @@ body {
 }
 
 .titlecontainer {
-  width: 80%;
-  margin: auto;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .header {
-  text-align: left;
   color: #561125;
-  float: left;
-  margin-left: 30px;
 }
 
 .headerlogo {
-  width: 80px;
-  height: 80px;
-  margin-top: 50px;
+  height: 45px;
   padding: 0;
 }
 

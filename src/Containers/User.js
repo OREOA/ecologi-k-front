@@ -23,7 +23,6 @@ class Home extends Component {
         const finlandData = [{angle: 6, color: '#F0F66E'}, {angle: 4, color: '#f88c20'}]
         return (
             <div className="App">
-                <Header />
                 <div className="content">
                     <div className="explanation-container">
                         <div className='square1'></div>

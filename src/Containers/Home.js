@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import {XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries, RadialChart} from 'react-vis'
-import { getStatisticsfForOne, getProducts } from "../helpers/utils";
+import { getStatisticsForOne, getProducts } from "../helpers/utils";
 import { ClipLoader } from 'react-spinners';
 import Header from './Header'
 
@@ -17,7 +17,7 @@ class Home extends Component {
 
     componentDidMount() {
         const that = this;
-        getStatisticsfForOne()
+        getStatisticsForOne()
             .then(function (response) {
                 // handle success
                 console.log(response.data);
@@ -54,7 +54,6 @@ class Home extends Component {
     render() {
         return (
             <div className="App">
-                <Header />
                 <div className="content">
                     <p>How you have eaten in last 30 days</p>
                     <div className="explanation-container">
