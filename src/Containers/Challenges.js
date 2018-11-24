@@ -8,7 +8,7 @@ class Challenges extends Component {
         return (
             <div className="App">
                 <header className="App-header">
-                    <h2 className={'header'}>
+                    <h2 className={'subheader'}>
                         Challenges
                     </h2>
                 </header>

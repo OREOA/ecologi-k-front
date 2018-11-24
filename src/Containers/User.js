@@ -24,16 +24,12 @@ class Home extends Component {
         return (
             <div className="App">
                 <header className="App-header">
-                    <h2 className={'header'}>
-                        ECOLOGI-K
+                    <h2 className={'subheader'}>
+                        Compare
                     </h2>
                 </header>
 
                 <div className="content">
-                    <select className='dropdown' onChange={this.handleSelect}>
-                        <option value="18-30">18-30</option>
-                        <option value="Finland">Finland</option>
-                    </select>
                     <div className="explanation-container">
                         <div className='square1'></div>
                         <p className='explanation-text' >Local food</p>
@@ -42,16 +38,23 @@ class Home extends Component {
                         <div className='square2'></div>
                         <p className='explanation-text'>Non local food</p>
                     </div>
-                    <p>How you have eaten in last 30 days</p>
-                    <RadialChart className={'chart'}
-                                 data={myData}
-                                 animation
-                                 width={120}
-                                 height={120}
-                                 colorType={'literal'}
-                                 showLabels={true}
-                    />
-                    <p>How your country has eaten in last 30 days</p>
+                    <div className={'card'}>
+                        <p>How you have eaten in last 30 days</p>
+                        <RadialChart className={'chart'}
+                                     data={myData}
+                                     animation
+                                     width={180}
+                                     height={180}
+                                     colorType={'literal'}
+                                     showLabels={true}
+                        />
+                    </div>
+                    <div className={'card'}>
+                        <p>Select comparable group</p>
+                        <select className='dropdown' onChange={this.handleSelect}>
+                            <option value="18-30">18-30</option>
+                            <option value="Finland">Finland</option>
+                        </select>
                     <RadialChart className={'chart'}
                                  data={this.state.selectedCompare === '18-30' ? overallData : finlandData}
                                  animation
@@ -60,6 +63,7 @@ class Home extends Component {
                                  colorType={'literal'}
                                  showLabels={true}
                     />
+                    </div>
                 </div>
             </div>
         )

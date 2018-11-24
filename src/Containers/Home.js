@@ -77,7 +77,7 @@ class Home extends Component {
                         <p className='explanation-text'>Non local food</p>
                     </div>
                     {this.state.data !== null && (
-                        <React.Fragment>
+                        <div className={'card'}>
                             <ClipLoader
                                 className={'spinner'}
                                 sizeUnit={"px"}
@@ -85,7 +85,7 @@ class Home extends Component {
                                 color={'#561125'}
                                 loading={!this.state.ready}
                             />
-
+                            <p>Your eating</p>
                             <RadialChart className={'chart'}
                                          data={this.state.data}
                                          animation
@@ -94,7 +94,7 @@ class Home extends Component {
                                          colorType={'literal'}
                                          showLabels={true}
                             />
-                        </React.Fragment>
+                        </div>
                     )}
                 </div>
             </div>
