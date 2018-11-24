@@ -113,12 +113,16 @@ body {
 .chart {
   margin: auto;
 }
+.explanations {
+  align-content: left;
+  width: 50%;
+  margin-left: 10px;
+}
 
 .explanation-container {
   width: 200px;
   margin: auto;
   text-align: left;
-  border: 1px solid red;
 }
 
 .explanation-text {

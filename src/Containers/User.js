@@ -17,6 +17,10 @@ class Home extends Component {
         })
     }
 
+    onMouseOver = () => {
+        
+    }
+
     render() {
         const myData = [{angle: 2, color: '#ec732f'}, {angle: 8, color: '#f88c20'}]
         const overallData = [{angle: 4, color: '#ec732f'}, {angle: 6, color: '#f88c20'}]
@@ -24,14 +28,6 @@ class Home extends Component {
         return (
             <div className="App">
                 <div className="content">
-                    <div className="explanation-container">
-                        <div className='square1'></div>
-                        <p className='explanation-text' >Local food</p>
-                    </div>
-                    <div className="explanation-container">
-                        <div className='square2'></div>
-                        <p className='explanation-text'>Non local food</p>
-                    </div>
                     <div className={'card'}>
                         <p>How you have eaten in last 30 days</p>
                         <RadialChart className={'chart'}
@@ -41,7 +37,19 @@ class Home extends Component {
                                      height={180}
                                      colorType={'literal'}
                                      showLabels={true}
+                                     onValueMouseOver={this.onMouseOver}
                         />
+                        <div className={'explanations'}>
+                            <div className="explanation-container">
+                                <div className='square1'></div>
+                                <p className='explanation-text' >Local food</p>
+                            </div>
+                            <div className="explanation-container">
+                                <div className='square2'></div>
+                                <p className='explanation-text'>Non local food</p>
+                            </div>
+                        </div>
+
                     </div>
                     <div className={'card'}>
                         <p>Select comparable group</p>
@@ -57,6 +65,17 @@ class Home extends Component {
                                  colorType={'literal'}
                                  showLabels={true}
                     />
+                        <div className={'explanations'}>
+                            <div className="explanation-container">
+                                <div className='square1'></div>
+                                <p className='explanation-text' >Local food</p>
+                            </div>
+                            <div className="explanation-container">
+                                <div className='square2'></div>
+                                <p className='explanation-text'>Non local food</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

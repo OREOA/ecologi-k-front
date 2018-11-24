@@ -75,13 +75,15 @@ class Home extends Component {
                                 colorType={'literal'}
                                 showLabels={true}
                             />
-                            <div className="explanation-container">
-                                <div className='square1'></div>
-                                <p className='explanation-text' >Local food</p>
-                            </div>
-                            <div className="explanation-container">
-                                <div className='square2'></div>
-                                <p className='explanation-text'>Non local food</p>
+                            <div className={'explanations'}>
+                                <div className="explanation-container">
+                                    <div className='square1'></div>
+                                    <p className='explanation-text' >Local food</p>
+                                </div>
+                                <div className="explanation-container">
+                                    <div className='square2'></div>
+                                    <p className='explanation-text'>Non local food</p>
+                                </div>
                             </div>
                         </div>
                     )}
