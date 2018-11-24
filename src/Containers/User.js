@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries, RadialChart} from 'react-vis';
-import '../App.css';
+import Header from './Header'
 
 class Home extends Component {
 
@@ -23,12 +23,7 @@ class Home extends Component {
         const finlandData = [{angle: 6, color: '#F0F66E'}, {angle: 4, color: '#f88c20'}]
         return (
             <div className="App">
-                <header className="App-header">
-                    <h2 className={'subheader'}>
-                        Compare
-                    </h2>
-                </header>
-
+                <Header />
                 <div className="content">
                     <div className="explanation-container">
                         <div className='square1'></div>

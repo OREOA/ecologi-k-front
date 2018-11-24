@@ -4,6 +4,7 @@ body {
   max-width: 375px;
   margin: auto;
 }
+
 .App {
   text-align: center;
   height: 100%;
@@ -17,8 +18,7 @@ body {
  }
 
 .App-header {
-  padding-top: 20px;
-  min-height: 150px;
+  min-height: 200px;
   font-size: 1.5em;
   color: #561125;
   font-family: 'Oswald', sans-serif;

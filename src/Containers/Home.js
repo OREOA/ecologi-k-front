@@ -3,6 +3,7 @@ import '../App.css';
 import {XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries, RadialChart} from 'react-vis'
 import { getStatisticsfForOne, getProducts } from "../helpers/utils";
 import { ClipLoader } from 'react-spinners';
+import Header from './Header'
 
 class Home extends Component {
 
@@ -12,7 +13,6 @@ class Home extends Component {
             data: [{angle: 0}, {angle: 10, color: '#f88c20'}],
             ready: false,
         }
-
     }
 
     componentDidMount() {
@@ -51,21 +51,10 @@ class Home extends Component {
             });
     }
 
-
-
-
-
     render() {
         return (
             <div className="App">
-                <header className="App-header">
-                    <div className={'titlecontainer'}>
-                        <h2 className={'header'}>
-                            ECOLOGI-
-                        </h2>
-                        <img className='headerlogo' src={require('../resources/kesko.png')} />
-                    </div>
-                </header>
+                <Header />
                 <div className="content">
                     <p>How you have eaten in last 30 days</p>
                     <div className="explanation-container">

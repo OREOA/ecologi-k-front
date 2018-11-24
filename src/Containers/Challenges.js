@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../App.css';
 import {XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries, RadialChart} from 'react-vis';
 
 class Challenges extends Component {
