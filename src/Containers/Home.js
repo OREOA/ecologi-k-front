@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import {XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries, RadialChart} from 'react-vis'
-import { getStatisticsForOne, getProducts } from "../helpers/utils";
+import { getStatisticsForOne, getEuStatisticsForOne } from "../helpers/utils";
 import { ClipLoader } from 'react-spinners';
 import Header from './Header'
 
@@ -10,21 +10,30 @@ class Home extends Component {
     constructor(){
         super();
         this.state = {
-            data: [{angle: 0}, {angle: 10, color: '#f88c20'}],
+            data: [],
             ready: false,
         }
     }
 
     componentDidMount() {
+        this.initializeChartData()
+    }
+
+    initializeChartData = () => {
+        this.getDomesticStatsForOne();
+        this.getEuStatsForOne();
+    }
+
+    getDomesticStatsForOne = () => {
         const that = this;
         getStatisticsForOne()
             .then(function (response) {
                 // handle success
-                console.log(response.data);
                 const value = response.data * 10
+                const data = that.state.data;
+                data.push({angle: value, color: '#ec732f'})
                 that.setState({
-                    data: [{angle: value, color: '#ec732f', label: `${(value * 10).toFixed(1)}%`}, {angle: 10-value, color: '#f88c20'}],
-                    ready: true,
+                    data: data,
                 })
             })
             .catch(function (error) {
@@ -32,9 +41,29 @@ class Home extends Component {
                     error: error,
                 }
             })
-            .then(function () {
-                // always executed
-            });
+
+    }
+
+    getEuStatsForOne = () => {
+        const that = this;
+        getEuStatisticsForOne()
+            .then(function (response) {
+                // handle success
+                const value = response.data * 10
+                const data = that.state.data;
+                const firstval = data[0].angle
+                const restval = 10-value-firstval;
+                data.push({angle: value, color: '#ff8500'}, {angle: restval, color: '#ffa600'})
+                that.setState({
+                    data: data,
+                    ready: true,
+                })
+            })
+            .catch(function (error) {
+                that.setState = {
+                    error: error,
+                }
+            })
 
     }
 

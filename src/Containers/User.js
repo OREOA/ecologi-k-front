@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries, RadialChart} from 'react-vis';
 import Header from './Header'
-import { getStatisticsForAll, getStatisticsForAgeGroup } from "../helpers/utils";
+import { getStatisticsForAll, getStatisticsForAgeGroup, getEuStatisticsForAll, getEuStatisticsForAgeGroup } from "../helpers/utils";
 
 class Home extends Component {
 
@@ -9,62 +9,84 @@ class Home extends Component {
         super()
         this.state = {
             selectedCompare: '18-24',
-            ageGroupData: null,
-            countryData: null,
+            ageGroupData: [],
+            allData: [],
             ready: false,
         }
     }
 
     componentDidMount() {
-        this.getStatsForAll()
-        this.getStatsForAgeGroup()
+        this.initializeAllStats();
     }
+
+
+    initializeAllStats = () => {
+        this.getStatsForAll();
+        this.getStatsForAgeGroup('18-24')
+    }
+
 
     getStatsForAll = () => {
-
-    }
-
-    getStatsForAgeGroup = () => {
         const that = this;
-
+        let value = null;
         getStatisticsForAll()
             .then(function (response) {
-                // handle success
-                console.log(response.data);
-                const value = response.data * 10
-                that.setState({
-                    countryData: [{angle: value, color: '#ec732f', label: `${(value * 10).toFixed(1)}%`}, {angle: 10-value, color: '#f88c20'}],
-                    ready: true,
-                })
-            })
-            .catch(function (error) {
-                that.setState = {
-                    error: error,
-                }
-            })
-            .then(function () {
-                // always executed
-            });
+                value = response.data * 10
+                getEuStatisticsForAll()
+                    .then(function (response) {
+                        let euvalue = response.data * 10;
+                        console.log(euvalue)
+                        let restvalue = 10 - euvalue - value;
+                        let data = []
+                        data.push({angle: value, color: '#ec732f'}, {angle: euvalue, color: '#ff8500'}, {angle: restvalue, color: '#ffa600' })
+                        that.setState({
+                            allData: data,
+                            ready: true,
+                        })
 
-        getStatisticsForAgeGroup(this.state.selectedCompare)
-            .then(function (response) {
-                // handle success
-                console.log(response.data);
-                const value = response.data * 10
-                that.setState({
-                    ageGroupData: [{angle: value, color: '#ec732f', label: `${(value * 10).toFixed(1)}%`}, {angle: 10-value, color: '#f88c20'}],
-                    ready: true,
-                })
+                    })
+                    .catch(function (error) {
+
+                    })
+
             })
             .catch(function (error) {
-                that.setState = {
-                    error: error,
-                }
+
             })
-            .then(function () {
-                // always executed
-            });
+
     }
+
+    getStatsForAgeGroup = (age) => {
+        const that = this;
+        let value = null;
+        getStatisticsForAgeGroup(age)
+            .then(function (response) {
+                value = response.data * 10
+                getEuStatisticsForAgeGroup(age)
+                    .then(function (response) {
+                        let euvalue = response.data * 10;
+                        console.log(euvalue)
+                        let restvalue = 10 - euvalue - value;
+                        let data = []
+                        data.push({angle: value, color: '#ec732f'}, {angle: euvalue, color: '#ff8500'}, {angle: restvalue, color: '#ffa600' })
+                        that.setState({
+                            ageGroupData: data,
+                            ready: true,
+                        })
+
+                    })
+                    .catch(function (error) {
+
+                    })
+
+            })
+            .catch(function (error) {
+
+            })
+
+    }
+
+
 
     handleSelect = (e) => {
         this.setState({
@@ -74,7 +96,7 @@ class Home extends Component {
 
 
     render() {
-        const myData = [{angle: 2, color: '#ec732f'}, {angle: 8, color: '#f88c20'}]
+        const myData = [{angle: 0.2, color: '#ec732f'}, {angle: 8, color: '#f88c20'}]
         return (
             <div className="App">
                 <div className="content">
@@ -110,15 +132,17 @@ class Home extends Component {
                             <option value="45-54">45-54</option>
                             <option value="Finland">Finland</option>
                         </select>
-                        {this.state.ready && this.state.ageGroupData !== null && this.state.countryData !== null && (
+                        {this.state.allData.length > 1 && this.state.ageGroupData.length > 1 && (
+                            <div>
                             <RadialChart className={'chart'}
-                                         data={this.state.selectedCompare !== 'Finland' ? this.state.ageGroupData : this.state.countryData}
+                                         data={this.state.selectedCompare === 'Finland' ? this.state.allData : this.state.ageGroupData}
                                          animation
                                          width={250}
                                          height={250}
                                          colorType={'literal'}
                                          showLabels={true}
                             />
+                            </div>
 
                         )}
                         <div className={'explanations'}>
