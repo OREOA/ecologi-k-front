@@ -8,18 +8,12 @@ export function getStatisticsForOne() {
     return (axios.get(`${URL}/api/purchases/getDomesticRatio/9001`))
 }
 
-export const getStatisticsForAll = axios.get('/all')
-    .then(function (response) {
-        // handle success
-        console.log(response);
-    })
-    .catch(function (error) {
-        // handle error
-        console.log(error);
-    })
-    .then(function () {
-        // always executed
-    });
+export function getStatisticsForAll() {
+    return (axios.get(`${URL}/api/purchases/getDomesticRatioForAll`))
+}
+export function getStatisticsForAgeGroup(age) {
+    return (axios.get(`${URL}/api/purchases/getDomesticRatioForAgeGroup/${age}`))
+}
 
 export function getProducts() {
     return axios.get(`${URL}/api/purchases/getDomesticRatio/${userId}`)
@@ -30,5 +24,5 @@ export function getChallenges() {
 }
 
 export function getChallengeResults() {
-    return axios.get(`${URL}/api/results/${userId}`)
+    return axios.get(`${URL}/api/results/${'5bf976954dfb0d2170144be9'}`)
 }

@@ -102,6 +102,11 @@ body {
   padding: 0 16px;
 }
 
+.menu .dropdown__content li a{
+  color: #ff6900;
+}
+
+
 .content {
   margin: auto;
   text-align: center;
@@ -196,6 +201,7 @@ body {
 
 .header {
   color: #561125;
+  font-size: 18px;
 }
 
 .headerlogo {

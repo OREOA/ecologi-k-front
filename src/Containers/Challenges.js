@@ -41,15 +41,18 @@ class Challenges extends Component {
     }
 
     render() {
-        const { challenges } = this.state
+        const { challenges, results } = this.state
         return (
             <div className="App">
                 <div className="content">
+                    {console.log(challenges)}
                     <p>Guidelines and challenges to track your environmental process</p>
-                    {challenges.map((c) => (
-                        <Collapsible trigger={c.title}>
+                    {results.map((c) => (
+                        <div>
+                        <Collapsible trigger={c.name}>
                             <p>Lorem ipsum dolor sit amet</p>
                         </Collapsible>
+                        </div>
                     ))}
                 </div>
             </div>

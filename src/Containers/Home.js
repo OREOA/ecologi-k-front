@@ -36,19 +36,6 @@ class Home extends Component {
                 // always executed
             });
 
-        getProducts()
-            .then(function (response) {
-                // handle success
-                console.log(response);
-
-            })
-            .catch(function (error) {
-                // handle error
-                console.log('error', error)
-            })
-            .then(function () {
-                // always executed
-            });
     }
 
     render() {
