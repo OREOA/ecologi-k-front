@@ -25,8 +25,8 @@ class App extends Component {
           <BrowserRouter>
             <div>
               <ul className="menu">
-                <li className={'underline'}><NavLink exact to="/">You</NavLink> </li>
-                <li className={'underline'}><NavLink to="/user">Compare</NavLink></li>
+                <li className={'rightline'}><NavLink exact to="/">You</NavLink> </li>
+                <li className={'rightline'}><NavLink to="/user">Compare</NavLink></li>
                   <li><NavLink to="/challenges">Challenges</NavLink></li>
               </ul>
               <div>

@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans|Oswald');
 
 body {
-  background-color: #fdf8ed;
+  max-width: 375px;
+  margin: auto;
 }
 .App {
   text-align: center;
   height: 100%;
+  background-color: #fdf8ed;
+  width: 375px;
 }
 
 .App-logo {
@@ -14,12 +17,13 @@ body {
  }
 
 .App-header {
+  padding-top: 20px;
   min-height: 200px;
-  display: flex;
-  flex-direction: column;
   font-size: 1.5em;
   color: #561125;
   font-family: 'Oswald', sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-link {
@@ -40,12 +44,15 @@ body {
   display:inline-block;
   vertical-align: top;
   margin: auto;
+  margin-top: 10px;
   padding: 5px;
-  width: 100%;
+  width: 30%;
+  font-size: 16px;
+
 }
 
-.underline {
-  border-bottom: 1px solid #fdf8ed;
+.rightline {
+  border-right: 1px solid #fdf8ed;
 }
 
 .menu li a {
@@ -57,10 +64,10 @@ body {
   border: 2px solid white;
   margin: auto;
   background-color: #561125;
-  width: 200px;
+  width: 100%;
   padding: 0;
   font-family: 'Lato', sans-serif;
-  margin-top: 10px;
+  height: 50px;
 }
 
 .content {
@@ -135,4 +142,28 @@ body {
   border: 0px;
   color: white;
   font-size: 18px;
+}
+.spinner{
+  position: absolute;
+  top: 80%;
+}
+
+.titlecontainer {
+  width: 80%;
+  margin: auto;
+}
+
+.header {
+  text-align: left;
+  color: white;
+  color: #561125;
+  float: left;
+  margin-left: 30px;
+}
+
+.headerlogo {
+  width: 80px;
+  height: 80px;
+  margin-top: 50px;
+  padding: 0;
 }

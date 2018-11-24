@@ -20,12 +20,12 @@ class Home extends Component {
     render() {
         const myData = [{angle: 2, color: '#ec732f'}, {angle: 8, color: '#f88c20'}]
         const overallData = [{angle: 4, color: '#ec732f'}, {angle: 6, color: '#f88c20'}]
-        const finlandData = [{angle: 6, color: '#ec732f'}, {angle: 4, color: '#f88c20'}]
+        const finlandData = [{angle: 6, color: '#F0F66E'}, {angle: 4, color: '#f88c20'}]
         return (
             <div className="App">
                 <header className="App-header">
                     <h2 className={'header'}>
-                        ECOLOGRIC
+                        ECOLOGI-K
                     </h2>
                 </header>
 
