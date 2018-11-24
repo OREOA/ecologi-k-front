@@ -56,14 +56,6 @@ class Home extends Component {
             <div className="App">
                 <div className="content">
                     <p>How you have eaten in last 30 days</p>
-                    <div className="explanation-container">
-                        <div className='square1'></div>
-                        <p className='explanation-text' >Local food</p>
-                    </div>
-                    <div className="explanation-container">
-                        <div className='square2'></div>
-                        <p className='explanation-text'>Non local food</p>
-                    </div>
                     {this.state.data !== null && (
                         <div className={'card'}>
                             <ClipLoader
@@ -74,14 +66,23 @@ class Home extends Component {
                                 loading={!this.state.ready}
                             />
                             <p>Your eating</p>
-                            <RadialChart className={'chart'}
-                                         data={this.state.data}
-                                         animation
-                                         width={250}
-                                         height={250}
-                                         colorType={'literal'}
-                                         showLabels={true}
+                            <RadialChart
+                                className={'chart'}
+                                data={this.state.data}
+                                animation
+                                width={250}
+                                height={250}
+                                colorType={'literal'}
+                                showLabels={true}
                             />
+                            <div className="explanation-container">
+                                <div className='square1'></div>
+                                <p className='explanation-text' >Local food</p>
+                            </div>
+                            <div className="explanation-container">
+                                <div className='square2'></div>
+                                <p className='explanation-text'>Non local food</p>
+                            </div>
                         </div>
                     )}
                 </div>

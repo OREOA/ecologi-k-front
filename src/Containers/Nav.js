@@ -21,6 +21,7 @@ class Nav extends Component {
                         </ul>
                     </DropdownContent>
                 </Dropdown>
+                <p className={'junction-text'}>Junction 2018</p>
             </div>
         )
     }
