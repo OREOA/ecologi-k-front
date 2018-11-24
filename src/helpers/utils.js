@@ -43,5 +43,5 @@ export function getChallenges() {
 }
 
 export function getChallengeResults() {
-    return axios.get(`${URL}/api/results/${'5bf976954dfb0d2170144be9'}`)
+    return axios.get(`${URL}/api/results/${userId}`)
 }

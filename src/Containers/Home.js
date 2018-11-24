@@ -71,6 +71,7 @@ class Home extends Component {
         return (
             <div className="App">
                 <div className="content">
+                    <h3>Rapacione productions limited</h3>
                     <p>How you have eaten in last 30 days</p>
                     {this.state.data !== null && (
                         <div className={'card'}>
