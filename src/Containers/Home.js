@@ -19,10 +19,10 @@ const customStyles = {
 };
 
 const mockData = {
-    '1': [{angle: 2.1820719950979122, color: "#ec732f", label: 2.1820719950979122, subLabel: "Domestic"}, {angle: 1.149347970552952, color: "#ff8500", label: 1.149347970552952, subLabel: "Eu-region"}, {angle: 7.0685800343491366, color: "#ffa600", label: 7.0685800343491366, subLabel: "Rest of the world"}],
-    '2': [{angle: 3.2820719950979122, color: "#ec732f", label: 3.2820719950979122, subLabel: "Domestic"}, {angle: 3.049347970552952, color: "#ff8500", label: 3.049347970552952, subLabel: "Eu-region"}, {angle: 4.0685800343491366, color: "#ffa600", label: 4.0685800343491366, subLabel: "Rest of the world"}],
-    '3': [{angle: 2.7620719950979122, color: "#ec732f", label: 2.7620719950979122, subLabel: "Domestic"}, {angle: 0.959347970552952, color: "#ff8500", label: 0.959347970552952, subLabel: "Eu-region"}, {angle: 6.6785800343491366, color: "#ffa600", label: 6.6785800343491366, subLabel: "Rest of the world"}],
-    '4': [{angle: 2.0620719950979122, color: "#ec732f", label: 2.0620719950979122, subLabel: "Domestic"}, {angle: 1.549347970552952, color: "#ff8500", label: 1.549347970552952, subLabel: "Eu-region"}, {angle: 6.7885800343491366, color: "#ffa600", label: 6.7885800343491366, subLabel: "Rest of the world"}],
+    '1': [{angle: 2.1820719950979122, color: "#ec732f", label: 2.1820719950979122, subLabel: "Domestic"}, {angle: 1.149347970552952, color: "#ff8500", label: 1.149347970552952, subLabel: "Eu-region"}, {angle: 6.6685800343491355, color: "#ffa600", label: 6.6685800343491355, subLabel: "Rest of the world"}],
+    '2': [{angle: 3.2820719950979122, color: "#ec732f", label: 3.2820719950979122, subLabel: "Domestic"}, {angle: 3.049347970552952, color: "#ff8500", label: 3.049347970552952, subLabel: "Eu-region"}, {angle: 3.6685800343491355, color: "#ffa600", label: 3.6685800343491355, subLabel: "Rest of the world"}],
+    '3': [{angle: 2.7620719950979122, color: "#ec732f", label: 2.7620719950979122, subLabel: "Domestic"}, {angle: 0.959347970552952, color: "#ff8500", label: 0.959347970552952, subLabel: "Eu-region"}, {angle: 6.278580034349136, color: "#ffa600", label: 6.278580034349136, subLabel: "Rest of the world"}],
+    '4': [{angle: 2.0620719950979122, color: "#ec732f", label: 2.0620719950979122, subLabel: "Domestic"}, {angle: 1.549347970552952, color: "#ff8500", label: 1.549347970552952, subLabel: "Eu-region"}, {angle: 6.388580034349136, color: "#ffa600", label: 6.388580034349136, subLabel: "Rest of the world"}],
     '5': [{angle: 0.5820719950979122, color: "#ec732f", label: 0.5820719950979122, subLabel: "Domestic"}, {angle: 2.749347970552951, color: "#ff8500", label: 2.749347970552951, subLabel: "Eu-region"}, {angle: 6.6685800343491366, color: "#ffa600", label: 6.6685800343491366, subLabel: "Rest of the world"}],
 }
 
@@ -233,11 +233,6 @@ class Home extends Component {
                         </p>
                     </div>
 
-                    <LineSeries
-                        color="#FF9833"
-                        className="dashed-example-line"
-                        data={[{x: 0, y: 25}, {x: 30, y: 25}]}
-                    />
                 </div>
             </div>
         );

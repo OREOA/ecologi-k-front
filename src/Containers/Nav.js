@@ -15,7 +15,7 @@ class Nav extends Component {
                     </DropdownTrigger>
                     <DropdownContent>
                         <ul>
-                            <li><NavLink exact to="/">You</NavLink></li>
+                            <li><NavLink exact to="/">Overview</NavLink></li>
                             <li><NavLink to="/user">Compare</NavLink></li>
                             <li><NavLink to="/challenges">Challenges</NavLink></li>
                         </ul>

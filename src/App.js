@@ -29,6 +29,9 @@ class App extends Component {
                             <Route path="/user" component={User} />
                             <Route path="/challenges" component={Challenges} />
                         </div>
+                        <div className="alamenu">
+                            <p className={'munax-text'}>Munax.Io productions ltd. 2018</p>
+                        </div>
                     </div>
                 </BrowserRouter>
             </div>
