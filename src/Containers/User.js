@@ -87,7 +87,6 @@ class Home extends Component {
                         data.push({angle: value, color: '#ec732f'}, {angle: euvalue, color: '#ff8500'}, {angle: restvalue, color: '#ffa600' })
                         that.setState({
                             allData: data,
-                            ready: true,
                         })
 
                     })
@@ -175,25 +174,25 @@ class Home extends Component {
 
                     </div>
                     <div className={'card'}>
-                        <p>Select comparision group</p>
-                        <select className='dropdown' onChange={this.handleSelect}>
-                            <option value="18-24">Ages 18-24</option>
-                            <option value="25-34">Ages 25-34</option>
-                            <option value="35-44">Ages 35-44</option>
-                            <option value="45-54">Ages 45-54</option>
-                            <option value="55-64">Ages 55-64</option>
-                            <option value="65-">Ages 65 --></option>
-                            <option value="Finland">Finland</option>
-                        </select>
+                        <ClipLoader
+                            className={'spinner'}
+                            sizeUnit={"px"}
+                            size={30}
+                            color={'#561125'}
+                            loading={!this.state.ready}
+                        />
                         {this.state.allData.length > 1 && this.state.ageGroupData.length > 1 && (
                             <div>
-                                <ClipLoader
-                                    className={'spinner'}
-                                    sizeUnit={"px"}
-                                    size={30}
-                                    color={'#561125'}
-                                    loading={!this.state.ready}
-                                />
+                                <p>Select comparision group</p>
+                                <select className='dropdown' onChange={this.handleSelect}>
+                                    <option value="18-24">Ages 18-24</option>
+                                    <option value="25-34">Ages 25-34</option>
+                                    <option value="35-44">Ages 35-44</option>
+                                    <option value="45-54">Ages 45-54</option>
+                                    <option value="55-64">Ages 55-64</option>
+                                    <option value="65-">Ages 65 --></option>
+                                    <option value="Finland">Finland</option>
+                                </select>
                             <RadialChart className={'chart'}
                                          data={this.state.selectedCompare === 'Finland' ? this.state.allData : this.state.ageGroupData}
                                          animation

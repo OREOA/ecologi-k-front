@@ -68,7 +68,6 @@ class Home extends Component {
                 mockData['0'] = data
                 that.setState({
                     data: data,
-                    ready: true,
                 })
             })
             .catch(function (error) {
@@ -203,21 +202,23 @@ class Home extends Component {
                                     )}
                                 </div>
                             </Modal>
-                            <div className={'explanations'}>
-                                <p className={'explanation-title'}>Origin region</p>
-                                <div className="explanation-container">
-                                    <div className='square1'></div>
-                                    <p className='explanation-text'>Domestic</p>
+                            {this.state.data && this.state.ready && (
+                                <div className={'explanations'}>
+                                    <p className={'explanation-title'}>Origin region</p>
+                                    <div className="explanation-container">
+                                        <div className='square1'></div>
+                                        <p className='explanation-text'>Domestic {(this.state.data[0].label*10).toFixed(1)} %</p>
+                                    </div>
+                                    <div className="explanation-container">
+                                        <div className='square2'></div>
+                                        <p className='explanation-text'>Eu-region {(this.state.data[1].label*10).toFixed(1)} %</p>
+                                    </div>
+                                    <div className="explanation-container">
+                                        <div className='square3'></div>
+                                        <p className='explanation-text'>Rest of the world {(this.state.data[2].label*10).toFixed(1)} %</p>
+                                    </div>
                                 </div>
-                                <div className="explanation-container">
-                                    <div className='square2'></div>
-                                    <p className='explanation-text'>Eu-region</p>
-                                </div>
-                                <div className="explanation-container">
-                                    <div className='square3'></div>
-                                    <p className='explanation-text'>Rest of the world</p>
-                                </div>
-                            </div>
+                            )}
                         </div>
                     )}
                     <div className={'info'}>
