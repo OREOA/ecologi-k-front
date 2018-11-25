@@ -345,3 +345,7 @@ body {
   width: 20px;
   transform: rotate(180deg);
 }
+
+.arrowContainer {
+  min-width: 20px;
+}

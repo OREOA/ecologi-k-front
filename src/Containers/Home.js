@@ -158,8 +158,11 @@ class Home extends Component {
 
 
                             <div className={'chartcontainer'}>
-                            <img onClick={this.changeMonthBack} className={'arrow-left'} src={require('../resources/arrow.svg')} />
-
+                                    <div className='arrowContainer'>
+                                        {this.state.currentMonth<5 && (
+                                            <img onClick={this.changeMonthBack} className={'arrow-left'} src={require('../resources/arrow.svg')} />
+                                        )}
+                                    </div>
                             <RadialChart
                                 className={'chart'}
                                 data={this.state.data}
@@ -170,9 +173,11 @@ class Home extends Component {
                                 onValueClick = {this.handleTouch}
                             />
 
-                            {this.state.currentMonth > 0 &&(
-                                <img onClick={this.changeMonthNext} className={'arrow-right'} src={require('../resources/arrow.svg')} />
-                            )}
+                                <div className='arrowContainer'>
+                                    {this.state.currentMonth > 0 &&(
+                                        <img onClick={this.changeMonthNext} className={'arrow-right'} src={require('../resources/arrow.svg')} />
+                                    )}
+                                </div>
                             </div>
                             <Modal
                                 isOpen={this.state.showModal}
