@@ -25,7 +25,7 @@ class Home extends Component {
         this.getDomesticStatsForOne();
         this.getEuStatsForOne();
         this.getStatsForAll();
-        this.getStatsForAgeGroup('18-24')
+        this.getStatsForAgeGroup('35-44')
     }
 
 
@@ -42,7 +42,7 @@ class Home extends Component {
                 })
             })
             .catch(function (error) {
-                this.setState = {
+                that.setState = {
                     error: error,
                 }
             })
@@ -92,7 +92,7 @@ class Home extends Component {
 
                     })
                     .catch(function (error) {
-
+                        console.log(error)
                     })
 
             })
@@ -122,7 +122,7 @@ class Home extends Component {
 
                     })
                     .catch(function (error) {
-
+                        console.log(error)
                     })
 
             })

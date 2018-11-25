@@ -283,6 +283,15 @@ body {
   float: right;
 }
 
+.Challenge_card_new_container {
+  display: inline-block;
+  height: 15px;
+  float: right;
+}
+
+
+
+
 .Challenge_card_progress_container img {
   transform: rotate(-117deg);
   height: 100%;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { RadialChart} from 'react-vis'
+import { RadialChart, XYPlot, VerticalBarSeries} from 'react-vis'
 import { getStatisticsForOne, getEuStatisticsForOne } from "../helpers/utils";
 import { ClipLoader } from 'react-spinners';
 import Header from './Header'
@@ -37,7 +37,7 @@ class Home extends Component {
                 })
             })
             .catch(function (error) {
-                this.setState = {
+                that.setState = {
                     error: error,
                 }
             })
@@ -68,6 +68,23 @@ class Home extends Component {
     }
 
     render() {
+        const barData = [
+            { "y": 100, "x": "Jan" },
+            { "y": 112, "x": "Feb" },
+            { "y": 230, "x": "Mar" },
+            { "y": 268, "x": "Apr" },
+            { "y": 300, "x": "May" },
+            { "y": 310, "x": "Jun" },
+            { "y": 315, "x": "Jul" },
+            { "y": 340, "x": "Aug" },
+            { "y": 388, "x": "Sep" },
+            { "y": 404, "x": "Oct" },
+            { "y": 442, "x": "Nov" },
+            { "y": 447, "x": "Dec" }
+        ]
+        const chartWidth = 800;
+        const chartHeight = 500;
+        const chartDomain = [0, chartHeight];
         return (
             <div className="App">
                 <div className="content">
@@ -109,6 +126,17 @@ class Home extends Component {
                             </div>
                         </div>
                     )}
+
+                    <XYPlot
+                        xType="ordinal"
+                        width={chartWidth}
+                        height={chartHeight}
+                        yDomain={chartDomain}
+                    >
+                        <VerticalBarSeries
+                            data={barData}
+                        />
+                    </XYPlot>
                 </div>
             </div>
         );

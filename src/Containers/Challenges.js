@@ -28,7 +28,7 @@ class Challenges extends Component {
                 challenge: {
                     id: '5bf9b6c38673062e3af5efdf',
                 },
-                value: 80,
+                value: 75,
             }, {
                 challenge: {
                     id: '5bf9b7ab82f24c2e93e2e77a',
@@ -84,6 +84,11 @@ class Challenges extends Component {
                                                 {progress > 0 && progress < 1 && (
                                                     <div className="Challenge_card_progress_container">
                                                         <img src={require('../resources/Pacman.svg')} />
+                                                    </div>
+                                                )}
+                                                {progress === 0 && (
+                                                    <div className="Challenge_card_new_container">
+                                                        <p>new!</p>
                                                     </div>
                                                 )}
                                             </p>
