@@ -28,6 +28,7 @@ class Home extends Component {
             ready: false,
             showModal: false,
             showvalue: null,
+            
         }
     }
 
@@ -125,6 +126,11 @@ class Home extends Component {
                                 loading={!this.state.ready}
                             />
                             <p>Your purchases over the last month</p>
+
+
+                            <div className={'chartcontainer'}>
+                            <img className={'arrow-left'} src={require('../resources/arrow.svg')} />
+
                             <RadialChart
                                 className={'chart'}
                                 data={this.state.data}
@@ -134,12 +140,15 @@ class Home extends Component {
                                 colorType={'literal'}
                                 onValueClick = {this.handleTouch}
                             />
+
+                            <img className={'arrow-right'} src={require('../resources/arrow.svg')} />
+                            </div>
                             <Modal
                                 isOpen={this.state.showModal}
                                 contentLabel="Example Modal"
                                 style={customStyles}
                             >
-                                <button onClick={this.handleTouch}>close</button>
+                                <button className={'modalbutton'} onClick={this.handleTouch}>close</button>
                                 <div>
                                     {this.state.showvalue && this.state.showModal && (
                                         <p>{this.state.showvalue.subLabel}: {(this.state.showvalue.label*10).toFixed(1)} %</p>
