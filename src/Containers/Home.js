@@ -50,11 +50,9 @@ class Home extends Component {
                 // handle success
                 const value = response.data * 10
                 const data = that.state.data;
-                const dataMap = that.state.dataMap
                 data.push({angle: value, color: '#ec732f', label: value, subLabel: 'Domestic'})
-                dataMap['0'] = data
+                mockData['0'] = data
                 that.setState({
-                    dataMap: dataMap,
                     data: data,
                     ready: true,
                 })
@@ -76,11 +74,9 @@ class Home extends Component {
                 const data = that.state.data;
                 const firstval = data[0].angle
                 const restval = 10-value-firstval;
-                const dataMap = that.state.dataMap
                 data.push({angle: value, color: '#ff8500', label: value, subLabel: 'Eu-region'}, {angle: restval, color: '#ffa600', label: restval,  subLabel: 'Rest of the world'})
-                dataMap['0'] = data
+                mockData['0'] = data
                 that.setState({
-                    dataMap: dataMap,
                     data: data,
                     ready: true,
                 })
@@ -106,14 +102,18 @@ class Home extends Component {
     }
 
     changeMonthBack = () => {
+        const newMonth = this.state.currentMonth + 1
         this.setState({
-            currentMonth: this.state.currentMonth +1,
+            currentMonth: newMonth,
+            data: mockData[newMonth],
         })
     }
 
     changeMonthNext = () => {
+        const newMonth = this.state.currentMonth - 1
         this.setState({
-            currentMonth: this.state.currentMonth -1,
+            currentMonth: newMonth,
+            data: mockData[newMonth],
         })
     }
 
@@ -157,7 +157,7 @@ class Home extends Component {
 
                             <RadialChart
                                 className={'chart'}
-                                data={this.state.dataMap[<this className="state currentMonthx"></this>]}
+                                data={this.state.data}
                                 animation
                                 width={250}
                                 height={250}
