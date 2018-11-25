@@ -25,6 +25,14 @@ const mockData = {
     '4': [{angle: 2.0620719950979122, color: "#ec732f", label: 2.0620719950979122, subLabel: "Domestic"}, {angle: 1.549347970552952, color: "#ff8500", label: 1.549347970552952, subLabel: "Eu-region"}, {angle: 6.7885800343491366, color: "#ffa600", label: 6.7885800343491366, subLabel: "Rest of the world"}],
     '5': [{angle: 0.5820719950979122, color: "#ec732f", label: 2.1820719950979122, subLabel: "Domestic"}, {angle: 3.149347970552952, color: "#ff8500", label: 1.149347970552952, subLabel: "Eu-region"}, {angle: 6.6685800343491366, color: "#ffa600", label: 7.0685800343491366, subLabel: "Rest of the world"}],
 }
+const monthMap = {
+    '0': 'november',
+    '1': 'october',
+    '2': 'september',
+    '3': 'august',
+    '4': 'july',
+    '5': 'june',
+}
 
 class Home extends Component {
 
@@ -32,7 +40,8 @@ class Home extends Component {
         super();
         this.state = {
             data: [],
-            currentMonth: 0,
+            spaghetti: 0,
+            month: monthMap[0],
             ready: false,
             showModal: false,
             showvalue: null,
@@ -107,18 +116,20 @@ class Home extends Component {
     }
 
     changeMonthBack = () => {
-        const newMonth = this.state.currentMonth + 1
+        const newSpaghetti = this.state.spaghetti + 1
         this.setState({
-            currentMonth: newMonth,
-            data: mockData[newMonth],
+            spaghetti: newSpaghetti,
+            data: mockData[newSpaghetti],
+            month: monthMap[newSpaghetti],
         })
     }
 
     changeMonthNext = () => {
-        const newMonth = this.state.currentMonth - 1
+        const newSpaghetti = this.state.spaghetti - 1
         this.setState({
-            currentMonth: newMonth,
-            data: mockData[newMonth],
+            spaghetti: newSpaghetti,
+            data: mockData[newSpaghetti],
+            month: monthMap[newSpaghetti],
         })
     }
 
@@ -154,12 +165,12 @@ class Home extends Component {
                                 color={'#561125'}
                                 loading={!this.state.ready}
                             />
-                            <p>Your purchases over the last month</p>
+                            <p>Your purchases in {this.state.month} </p>
 
 
                             <div className={'chartcontainer'}>
                                     <div className='arrowContainer'>
-                                        {this.state.currentMonth<5 && (
+                                        {this.state.spaghetti<5 && (
                                             <img onClick={this.changeMonthBack} className={'arrow-left'} src={require('../resources/arrow.svg')} />
                                         )}
                                     </div>
@@ -173,8 +184,9 @@ class Home extends Component {
                                 onValueClick = {this.handleTouch}
                             />
 
+
                                 <div className='arrowContainer'>
-                                    {this.state.currentMonth > 0 &&(
+                                    {this.state.spaghetti > 0 &&(
                                         <img onClick={this.changeMonthNext} className={'arrow-right'} src={require('../resources/arrow.svg')} />
                                     )}
                                 </div>
