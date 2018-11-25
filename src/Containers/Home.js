@@ -165,7 +165,7 @@ class Home extends Component {
                     )}
                     <div className={'info'}>
                         <h3>Why all of this matters</h3>
-                        <p>
+                        <p className={'breadtext'}>
                             The location where food is produced correlates a lot with the responsibility and
                             healthiness of the food. Usually close by produced food has smaller effects of
                             environment,is more pure and is more certainly produced in responsibly way.
