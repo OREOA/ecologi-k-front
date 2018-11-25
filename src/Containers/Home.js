@@ -72,7 +72,7 @@ class Home extends Component {
             <div className="App">
                 <div className="content">
                     <h3>Origin of your purchases</h3>
-                    <p>More domestic and local goods - the healthy and ecological choice</p>
+                    <p>Domestic and local goods - the healthy and ecological choice</p>
                     {this.state.data !== null && (
                         <div className={'card'}>
                             <ClipLoader
@@ -82,7 +82,7 @@ class Home extends Component {
                                 color={'#561125'}
                                 loading={!this.state.ready}
                             />
-                            <p>Your purchases over the last month:</p>
+                            <p>Your purchases over the last month</p>
                             <RadialChart
                                 className={'chart'}
                                 data={this.state.data}
