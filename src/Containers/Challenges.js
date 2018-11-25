@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { getChallenges, getChallengeResults } from '../helpers/utils'
-import { RadialChart } from 'react-vis'
 import Collapsible from 'react-collapsible'
 
 class Challenges extends Component {
@@ -11,8 +10,14 @@ class Challenges extends Component {
             challenges: [{
                 id: '5bf9b6c38673062e3af5efdf',
                 name: 'Domestic for the win',
-                description: '75% of your purchases are made in Finland',
+                description: '75% of your purchases are domestic products',
                 goal: 75,
+            },
+            {
+                id: 'wuroghli34i8galal38ral83',
+                name: 'Embrace fair-trade',
+                description: 'Only buy fair-trade products from the outside of EU-region',
+                goal: 30,
             }, {
                 id: '5bf9b7ab82f24c2e93e2e77a',
                 name: 'Meatless month',
@@ -21,14 +26,19 @@ class Challenges extends Component {
             }],
             results: [{
                 challenge: {
-                    id: '5bf9b7ab82f24c2e93e2e77a',
-                },
-                value: 45,
-            }, {
-                challenge: {
                     id: '5bf9b6c38673062e3af5efdf',
                 },
-                value: 30,
+                value: 80,
+            }, {
+                challenge: {
+                    id: '5bf9b7ab82f24c2e93e2e77a',
+                },
+                value: 24,
+            }, {
+                challenge: {
+                    id: 'wuroghli34i8galal38ral83',
+                },
+                value: 0,
             }],
         }
     }
