@@ -29,12 +29,12 @@ const mockData = {
 const bestDomesticScore = mockData[2][0].label
 
 const monthMap = {
-    '0': 'november',
-    '1': 'october',
-    '2': 'september',
-    '3': 'august',
-    '4': 'july',
-    '5': 'june',
+    '0': 'November',
+    '1': 'October',
+    '2': 'September',
+    '3': 'August',
+    '4': 'July',
+    '5': 'June',
 }
 
 class Home extends Component {
