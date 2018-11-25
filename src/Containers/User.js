@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries, RadialChart} from 'react-vis';
-import Header from './Header'
-import { getStatisticsForAll, getStatisticsForAgeGroup, getEuStatisticsForAll, getEuStatisticsForAgeGroup } from "../helpers/utils";
+import { RadialChart} from 'react-vis';
+import { ClipLoader } from 'react-spinners';
+import { getStatisticsForAll, getStatisticsForAgeGroup, getEuStatisticsForAll, getEuStatisticsForAgeGroup, getEuStatisticsForOne, getStatisticsForOne } from "../helpers/utils";
 
 class Home extends Component {
 
@@ -11,6 +11,7 @@ class Home extends Component {
             selectedCompare: '18-24',
             ageGroupData: [],
             allData: [],
+            data: [],
             ready: false,
         }
     }
@@ -21,8 +22,53 @@ class Home extends Component {
 
 
     initializeAllStats = () => {
+        this.getDomesticStatsForOne();
+        this.getEuStatsForOne();
         this.getStatsForAll();
         this.getStatsForAgeGroup('18-24')
+    }
+
+
+    getDomesticStatsForOne = () => {
+        const that = this;
+        getStatisticsForOne()
+            .then(function (response) {
+                // handle success
+                const value = response.data * 10
+                const data = that.state.data;
+                data.push({angle: value, color: '#ec732f'})
+                that.setState({
+                    data: data,
+                })
+            })
+            .catch(function (error) {
+                this.setState = {
+                    error: error,
+                }
+            })
+
+    }
+
+    getEuStatsForOne = () => {
+        const that = this;
+        getEuStatisticsForOne()
+            .then(function (response) {
+                // handle success
+                const value = response.data * 10
+                const data = that.state.data;
+                const firstval = data[0].angle
+                const restval = 10-value-firstval;
+                data.push({angle: value, color: '#ff8500'}, {angle: restval, color: '#ffa600'})
+                that.setState({
+                    data: data,
+                })
+            })
+            .catch(function (error) {
+                that.setState = {
+                    error: error,
+                }
+            })
+
     }
 
 
@@ -103,7 +149,7 @@ class Home extends Component {
                     <div className={'card'}>
                         <p>How you have eaten in last 30 days</p>
                         <RadialChart className={'chart'}
-                                     data={myData}
+                                     data={this.state.data}
                                      animation
                                      width={180}
                                      height={180}
@@ -111,13 +157,18 @@ class Home extends Component {
                                      showLabels={true}
                         />
                         <div className={'explanations'}>
+                            <p>Origin of the food</p>
                             <div className="explanation-container">
                                 <div className='square1'></div>
-                                <p className='explanation-text' >Local food</p>
+                                <p className='explanation-text'>Domestic</p>
                             </div>
                             <div className="explanation-container">
                                 <div className='square2'></div>
-                                <p className='explanation-text'>Non local food</p>
+                                <p className='explanation-text'>Eu-region</p>
+                            </div>
+                            <div className="explanation-container">
+                                <div className='square3'></div>
+                                <p className='explanation-text'>Rest of the world</p>
                             </div>
                         </div>
 
@@ -126,14 +177,23 @@ class Home extends Component {
                     <div className={'card'}>
                         <p>Select comparable group</p>
                         <select className='dropdown' onChange={this.handleSelect}>
-                            <option value="18-24">18-24</option>
-                            <option value="25-34">25-34</option>
-                            <option value="35-44">35-44</option>
-                            <option value="45-54">45-54</option>
+                            <option value="18-24">Ages 18-24</option>
+                            <option value="25-34">Ages 25-34</option>
+                            <option value="35-44">Ages 35-44</option>
+                            <option value="45-54">Ages 45-54</option>
+                            <option value="55-64">Ages 55-64</option>
+                            <option value="65-">Ages 65 --></option>
                             <option value="Finland">Finland</option>
                         </select>
                         {this.state.allData.length > 1 && this.state.ageGroupData.length > 1 && (
                             <div>
+                                <ClipLoader
+                                    className={'spinner'}
+                                    sizeUnit={"px"}
+                                    size={30}
+                                    color={'#561125'}
+                                    loading={!this.state.ready}
+                                />
                             <RadialChart className={'chart'}
                                          data={this.state.selectedCompare === 'Finland' ? this.state.allData : this.state.ageGroupData}
                                          animation
@@ -146,13 +206,18 @@ class Home extends Component {
 
                         )}
                         <div className={'explanations'}>
+                            <p>Origin of the food</p>
                             <div className="explanation-container">
                                 <div className='square1'></div>
-                                <p className='explanation-text' >Local food</p>
+                                <p className='explanation-text'>Domestic</p>
                             </div>
                             <div className="explanation-container">
                                 <div className='square2'></div>
-                                <p className='explanation-text'>Non local food</p>
+                                <p className='explanation-text'>Eu-region</p>
+                            </div>
+                            <div className="explanation-container">
+                                <div className='square3'></div>
+                                <p className='explanation-text'>Rest of the world</p>
                             </div>
                         </div>
 

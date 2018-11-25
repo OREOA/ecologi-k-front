@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import {XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries, RadialChart} from 'react-vis'
+import { RadialChart} from 'react-vis'
 import { getStatisticsForOne, getEuStatisticsForOne } from "../helpers/utils";
 import { ClipLoader } from 'react-spinners';
 import Header from './Header'
@@ -93,13 +93,18 @@ class Home extends Component {
                                 showLabels={true}
                             />
                             <div className={'explanations'}>
+                                <p>Origin of the food</p>
                                 <div className="explanation-container">
                                     <div className='square1'></div>
-                                    <p className='explanation-text' >Local food</p>
+                                    <p className='explanation-text'>Domestic</p>
                                 </div>
                                 <div className="explanation-container">
                                     <div className='square2'></div>
-                                    <p className='explanation-text'>Non local food</p>
+                                    <p className='explanation-text'>Eu-region</p>
+                                </div>
+                                <div className="explanation-container">
+                                    <div className='square3'></div>
+                                    <p className='explanation-text'>Rest of the world</p>
                                 </div>
                             </div>
                         </div>

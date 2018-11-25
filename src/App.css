@@ -145,7 +145,16 @@ body {
 
 .square2 {
   margin-top: 5px;
-  background-color: #f88c20;
+  background-color: #ff8500;
+  width: 20px;
+  height: 20px;
+  float: left;
+}
+
+
+.square3 {
+  margin-top: 5px;
+  background-color:#ffa600;
   width: 20px;
   height: 20px;
   float: left;
