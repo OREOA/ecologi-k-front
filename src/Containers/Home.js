@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { RadialChart, XYPlot, VerticalBarSeries} from 'react-vis'
+import { RadialChart, LineSeries} from 'react-vis'
 import { getStatisticsForOne, getEuStatisticsForOne } from "../helpers/utils";
 import { ClipLoader } from 'react-spinners';
 import Header from './Header'
+import Modal from 'react-modal';
+
+
+const customStyles = {
+    content : {
+        top                   : '50%',
+        left                  : '50%',
+        right                 : 'auto',
+        bottom                : 'auto',
+        marginRight           : '-50%',
+        transform             : 'translate(-50%, -50%)'
+    }
+};
+
 
 class Home extends Component {
 
@@ -12,6 +26,8 @@ class Home extends Component {
         this.state = {
             data: [],
             ready: false,
+            showModal: false,
+            showvalue: null,
         }
     }
 
@@ -31,9 +47,10 @@ class Home extends Component {
                 // handle success
                 const value = response.data * 10
                 const data = that.state.data;
-                data.push({angle: value, color: '#ec732f'})
+                data.push({angle: value, color: '#ec732f', label: value, subLabel: 'Domestic'})
                 that.setState({
                     data: data,
+                    ready: true,
                 })
             })
             .catch(function (error) {
@@ -53,7 +70,7 @@ class Home extends Component {
                 const data = that.state.data;
                 const firstval = data[0].angle
                 const restval = 10-value-firstval;
-                data.push({angle: value, color: '#ff8500'}, {angle: restval, color: '#ffa600'})
+                data.push({angle: value, color: '#ff8500', label: value, subLabel: 'Eu-region'}, {angle: restval, color: '#ffa600', label: restval,  subLabel: 'Rest of the world'})
                 that.setState({
                     data: data,
                     ready: true,
@@ -67,23 +84,31 @@ class Home extends Component {
 
     }
 
+    handleTouch = (e) => {
+        console.log(e)
+        this.setState({
+            showModal: !this.state.showModal,
+            showvalue: e,
+        })
+    }
+
     render() {
         const barData = [
-            { "y": 100, "x": "Jan" },
-            { "y": 112, "x": "Feb" },
-            { "y": 230, "x": "Mar" },
-            { "y": 268, "x": "Apr" },
-            { "y": 300, "x": "May" },
-            { "y": 310, "x": "Jun" },
-            { "y": 315, "x": "Jul" },
-            { "y": 340, "x": "Aug" },
-            { "y": 388, "x": "Sep" },
-            { "y": 404, "x": "Oct" },
-            { "y": 442, "x": "Nov" },
-            { "y": 447, "x": "Dec" }
+            { "y":100, "x": "Jan" },
+            { "y": 100, "x": "Feb" },
+            { "y": 30, "x": "Mar" },
+            { "y":100, "x": "Apr" },
+            { "y": 60, "x": "May" },
+            { "y": 40, "x": "Jun" },
+            { "y": 70, "x": "Jul" },
+            { "y": 70, "x": "Aug" },
+            { "y": 80, "x": "Sep" },
+            { "y": 30, "x": "Oct" },
+            { "y": 20, "x": "Nov" },
+            { "y": 50, "x": "Dec" }
         ]
-        const chartWidth = 800;
-        const chartHeight = 500;
+        const chartWidth = 350;
+        const chartHeight = 200;
         const chartDomain = [0, chartHeight];
         return (
             <div className="App">
@@ -107,8 +132,20 @@ class Home extends Component {
                                 width={250}
                                 height={250}
                                 colorType={'literal'}
-                                showLabels={true}
+                                onValueClick = {this.handleTouch}
                             />
+                            <Modal
+                                isOpen={this.state.showModal}
+                                contentLabel="Example Modal"
+                                style={customStyles}
+                            >
+                                <button onClick={this.handleTouch}>close</button>
+                                <div>
+                                    {this.state.showvalue && this.state.showModal && (
+                                        <p>{this.state.showvalue.subLabel}: {(this.state.showvalue.label*10).toFixed(1)} %</p>
+                                    )}
+                                </div>
+                            </Modal>
                             <div className={'explanations'}>
                                 <p className={'explanation-title'}>Origin region</p>
                                 <div className="explanation-container">
@@ -135,16 +172,11 @@ class Home extends Component {
                         </p>
                     </div>
 
-                    <XYPlot
-                        xType="ordinal"
-                        width={chartWidth}
-                        height={chartHeight}
-                        yDomain={chartDomain}
-                    >
-                        <VerticalBarSeries
-                            data={barData}
-                        />
-                    </XYPlot>
+                    <LineSeries
+                        color="#FF9833"
+                        className="dashed-example-line"
+                        data={[{x: 0, y: 25}, {x: 30, y: 25}]}
+                    />
                 </div>
             </div>
         );

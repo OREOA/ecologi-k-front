@@ -290,8 +290,6 @@ body {
 }
 
 
-
-
 .Challenge_card_progress_container img {
   transform: rotate(-117deg);
   height: 100%;
@@ -311,4 +309,13 @@ body {
   width: 95%;
   margin-bottom: 30px;
   margin: auto;
+}
+
+.modal {
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,.2);
+  -moz-box-shadow: 0 1px 3px 0 rgba(0,0,0,.2);
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.2);
+  width: 120px;
+  height: 40px;
+
 }
