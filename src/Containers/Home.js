@@ -18,13 +18,16 @@ const customStyles = {
     }
 };
 
+const mockData = {'1': [{angle: 2.1820719950979122, color: "#ec732f", label: 2.1820719950979122, subLabel: "Domestic"}, {angle: 1.149347970552952, color: "#ff8500", label: 1.149347970552952, subLabel: "Eu-region"}, {angle: 7.0685800343491366, color: "#ffa600", label: 7.0685800343491366, subLabel: "Rest of the world"}]}
 
 class Home extends Component {
 
     constructor(){
         super();
         this.state = {
+            dataMap: mockData,
             data: [],
+            currentMonth: 0,
             ready: false,
             showModal: false,
             showvalue: null,
@@ -48,8 +51,11 @@ class Home extends Component {
                 // handle success
                 const value = response.data * 10
                 const data = that.state.data;
+                const dataMap = that.state.dataMap
                 data.push({angle: value, color: '#ec732f', label: value, subLabel: 'Domestic'})
+                dataMap['0'] = data
                 that.setState({
+                    dataMap: dataMap,
                     data: data,
                     ready: true,
                 })
@@ -71,8 +77,11 @@ class Home extends Component {
                 const data = that.state.data;
                 const firstval = data[0].angle
                 const restval = 10-value-firstval;
+                const dataMap = that.state.dataMap
                 data.push({angle: value, color: '#ff8500', label: value, subLabel: 'Eu-region'}, {angle: restval, color: '#ffa600', label: restval,  subLabel: 'Rest of the world'})
+                dataMap['0'] = data
                 that.setState({
+                    dataMap: dataMap,
                     data: data,
                     ready: true,
                 })
@@ -87,6 +96,10 @@ class Home extends Component {
 
     handleTouch = (e) => {
         console.log(e)
+        console.log("-------------------------")
+        console.log(this.state.data)
+        console.log(this.state.dataMap)
+        console.log("-------------------------")
         this.setState({
             showModal: !this.state.showModal,
             showvalue: e,
