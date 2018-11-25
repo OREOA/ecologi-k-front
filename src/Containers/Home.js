@@ -89,7 +89,7 @@ class Home extends Component {
             <div className="App">
                 <div className="content">
                     <h3>Origin of your purchases</h3>
-                    <p>Domestic and local goods - the healthy and ecological choice</p>
+                    <p className={'breadtext'}>Domestic and local goods - the healthy and ecological choice</p>
                     {this.state.data !== null && (
                         <div className={'card'}>
                             <ClipLoader
@@ -110,7 +110,7 @@ class Home extends Component {
                                 showLabels={true}
                             />
                             <div className={'explanations'}>
-                                <p>Origin region</p>
+                                <p className={'explanation-title'}>Origin region</p>
                                 <div className="explanation-container">
                                     <div className='square1'></div>
                                     <p className='explanation-text'>Domestic</p>
@@ -126,6 +126,14 @@ class Home extends Component {
                             </div>
                         </div>
                     )}
+                    <div className={'info'}>
+                        <h3>Why all of this matters</h3>
+                        <p>
+                            The location where food is produced correlates a lot with the responsibility and
+                            healthiness of the food. Usually close by produced food has smaller effects of
+                            environment,is more pure and is more certainly produced in responsibly way.
+                        </p>
+                    </div>
 
                     <XYPlot
                         xType="ordinal"

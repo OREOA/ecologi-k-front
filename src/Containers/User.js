@@ -157,7 +157,7 @@ class Home extends Component {
                                      showLabels={true}
                         />
                         <div className={'explanations'}>
-                            <p>Origin region</p>
+                            <p className={'explanation-title'}>Origin region</p>
                             <div className="explanation-container">
                                 <div className='square1'></div>
                                 <p className='explanation-text'>Domestic</p>
@@ -206,7 +206,7 @@ class Home extends Component {
 
                         )}
                         <div className={'explanations'}>
-                            <p>Origin region</p>
+                            <p className={'explanation-title'}>Origin region</p>
                             <div className="explanation-container">
                                 <div className='square1'></div>
                                 <p className='explanation-text'>Domestic</p>

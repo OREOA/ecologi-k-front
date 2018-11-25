@@ -296,3 +296,19 @@ body {
   transform: rotate(-117deg);
   height: 100%;
 }
+
+.explanation-title {
+  text-align: left;
+  font-size: 20px;
+}
+
+.breadtext{
+  width: 95%;
+  margin-bottom: 30px;
+}
+
+.info {
+  width: 95%;
+  margin-bottom: 30px;
+  margin: auto;
+}
