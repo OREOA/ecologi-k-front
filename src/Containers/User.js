@@ -155,23 +155,24 @@ class Home extends Component {
                                      colorType={'literal'}
                                      showLabels={true}
                         />
-                        <div className={'explanations'}>
-                            <p className={'explanation-title'}>Origin region</p>
-                            <div className="explanation-container">
-                                <div className='square1'></div>
-                                <p className='explanation-text'>Domestic</p>
-                            </div>
-                            <div className="explanation-container">
-                                <div className='square2'></div>
-                                <p className='explanation-text'>Eu-region</p>
-                            </div>
-                            <div className="explanation-container">
-                                <div className='square3'></div>
-                                <p className='explanation-text'>Rest of the world</p>
-                            </div>
-                        </div>
 
-
+                        {this.state.data !== null && this.state.ready && (
+                            <div className={'explanations'}>
+                                <p className={'explanation-title'}>Origin region</p>
+                                <div className="explanation-container">
+                                    <div className='square1'></div>
+                                    <p className='explanation-text'>Domestic {(this.state.data[0].angle*10).toFixed(1)} %</p>
+                                </div>
+                                <div className="explanation-container">
+                                    <div className='square2'></div>
+                                    <p className='explanation-text'>Eu-region {(this.state.data[1].angle*10).toFixed(1)} %</p>
+                                </div>
+                                <div className="explanation-container">
+                                    <div className='square3'></div>
+                                    <p className='explanation-text'>Rest of the world {(this.state.data[2].angle*10).toFixed(1)} %</p>
+                                </div>
+                            </div>
+                        )}
                     </div>
                     <div className={'card'}>
                         <ClipLoader
@@ -204,21 +205,44 @@ class Home extends Component {
                             </div>
 
                         )}
-                        <div className={'explanations'}>
-                            <p className={'explanation-title'}>Origin region</p>
-                            <div className="explanation-container">
-                                <div className='square1'></div>
-                                <p className='explanation-text'>Domestic</p>
+
+                        {this.state.selectedCompare !== 'Finland' && this.state.ageGroupData !== null &&  this.state.ready && (
+                            <div className={'explanations'}>
+                                {console.log(this.state.ageGroupData)}
+                                <p className={'explanation-title'}>Origin region</p>
+                                <div className="explanation-container">
+                                    <div className='square1'></div>
+                                    <p className='explanation-text'>Domestic {(this.state.ageGroupData[0].angle*10).toFixed(1)} %</p>
+                                </div>
+                                <div className="explanation-container">
+                                    <div className='square2'></div>
+                                    <p className='explanation-text'>Eu-region {(this.state.ageGroupData[1].angle*10).toFixed(1)} %</p>
+                                </div>
+                                <div className="explanation-container">
+                                    <div className='square3'></div>
+                                    <p className='explanation-text'>Rest of the world {(this.state.ageGroupData[2].angle*10).toFixed(1)} %</p>
+                                </div>
                             </div>
-                            <div className="explanation-container">
-                                <div className='square2'></div>
-                                <p className='explanation-text'>Eu-region</p>
+                        )}
+
+                        {this.state.selectedCompare == 'Finland' && this.state.allData !== null && this.state.ready && (
+                            <div className={'explanations'}>
+                                <p className={'explanation-title'}>Origin region</p>
+                                <div className="explanation-container">
+                                    <div className='square1'></div>
+                                    <p className='explanation-text'>Domestic {(this.state.allData[0].angle*10).toFixed(1)} % </p>
+                                </div>
+                                <div className="explanation-container">
+                                    <div className='square2'></div>
+                                    <p className='explanation-text'>Eu-region {(this.state.allData[1].angle*10).toFixed(1)} %</p>
+                                </div>
+                                <div className="explanation-container">
+                                    <div className='square3'></div>
+                                    <p className='explanation-text'>Rest of the world {(this.state.allData[2].angle*10).toFixed(1)} %</p>
+                                </div>
                             </div>
-                            <div className="explanation-container">
-                                <div className='square3'></div>
-                                <p className='explanation-text'>Rest of the world</p>
-                            </div>
-                        </div>
+                        )}
+
 
                     </div>
                 </div>
