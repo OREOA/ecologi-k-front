@@ -27,11 +27,10 @@ class Home extends Component {
         this.state = {
             dataMap: mockData,
             data: [],
-            currentMonth: 0,
+            currentMonth: '',
             ready: false,
             showModal: false,
             showvalue: null,
-            
         }
     }
 
@@ -106,6 +105,18 @@ class Home extends Component {
         })
     }
 
+    changeMonthBack = () => {
+        this.setState({
+            currentMonth: this.state.currentMonth +1,
+        })
+    }
+
+    changeMonthNext = () => {
+        this.setState({
+            currentMonth: this.state.currentMonth -1,
+        })
+    }
+
     render() {
         const barData = [
             { "y":100, "x": "Jan" },
@@ -142,11 +153,11 @@ class Home extends Component {
 
 
                             <div className={'chartcontainer'}>
-                            <img className={'arrow-left'} src={require('../resources/arrow.svg')} />
+                            <img onClick={this.changeMonthBack} className={'arrow-left'} src={require('../resources/arrow.svg')} />
 
                             <RadialChart
                                 className={'chart'}
-                                data={this.state.data}
+                                data={this.state.dataMap[<this className="state currentMonthx"></this>]}
                                 animation
                                 width={250}
                                 height={250}
@@ -154,7 +165,9 @@ class Home extends Component {
                                 onValueClick = {this.handleTouch}
                             />
 
-                            <img className={'arrow-right'} src={require('../resources/arrow.svg')} />
+                            {this.state.currentMonth > 0 &&(
+                                <img onClick={this.changeMonthNext} className={'arrow-right'} src={require('../resources/arrow.svg')} />
+                            )}
                             </div>
                             <Modal
                                 isOpen={this.state.showModal}
