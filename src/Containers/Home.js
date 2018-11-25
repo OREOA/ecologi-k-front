@@ -40,7 +40,8 @@ class Home extends Component {
         super();
         this.state = {
             data: [],
-            currentMonth: 0,
+            spaghetti: 0,
+            month: monthMap[0],
             ready: false,
             showModal: false,
             showvalue: null,
@@ -115,18 +116,20 @@ class Home extends Component {
     }
 
     changeMonthBack = () => {
-        const newMonth = this.state.currentMonth + 1
+        const newSpaghetti = this.state.spaghetti + 1
         this.setState({
-            currentMonth: newMonth,
-            data: mockData[newMonth],
+            spaghetti: newSpaghetti,
+            data: mockData[newSpaghetti],
+            month: monthMap[newSpaghetti],
         })
     }
 
     changeMonthNext = () => {
-        const newMonth = this.state.currentMonth - 1
+        const newSpaghetti = this.state.spaghetti - 1
         this.setState({
-            currentMonth: newMonth,
-            data: mockData[newMonth],
+            spaghetti: newSpaghetti,
+            data: mockData[newSpaghetti],
+            month: monthMap[newSpaghetti],
         })
     }
 
@@ -162,7 +165,7 @@ class Home extends Component {
                                 color={'#561125'}
                                 loading={!this.state.ready}
                             />
-                            <p>Your purchases over the last month</p>
+                            <p>Your purchases in {this.state.month} </p>
 
 
                             <div className={'chartcontainer'}>
@@ -178,7 +181,7 @@ class Home extends Component {
                                 onValueClick = {this.handleTouch}
                             />
 
-                            {this.state.currentMonth > 0 &&(
+                            {this.state.spaghetti > 0 &&(
                                 <img onClick={this.changeMonthNext} className={'arrow-right'} src={require('../resources/arrow.svg')} />
                             )}
                             </div>
