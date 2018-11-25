@@ -88,8 +88,8 @@ class Home extends Component {
         return (
             <div className="App">
                 <div className="content">
-                    <h3>Rapacione productions limited</h3>
-                    <p>How you have eaten in last 30 days</p>
+                    <h3>Origin of your purchases</h3>
+                    <p>Domestic and local goods - the healthy and ecological choice</p>
                     {this.state.data !== null && (
                         <div className={'card'}>
                             <ClipLoader
@@ -99,7 +99,7 @@ class Home extends Component {
                                 color={'#561125'}
                                 loading={!this.state.ready}
                             />
-                            <p>Your eating</p>
+                            <p>Your purchases over the last month</p>
                             <RadialChart
                                 className={'chart'}
                                 data={this.state.data}
@@ -110,7 +110,7 @@ class Home extends Component {
                                 showLabels={true}
                             />
                             <div className={'explanations'}>
-                                <p>Origin of the food</p>
+                                <p>Origin region</p>
                                 <div className="explanation-container">
                                     <div className='square1'></div>
                                     <p className='explanation-text'>Domestic</p>
@@ -142,5 +142,6 @@ class Home extends Component {
         );
     }
 }
-
+//TEKSTI:
+//The location where food is produced correlates a lot with the responsibility and healthiness of the food. Usually close by produced food has smaller effects of environment, is more pure and is more certainly produced in responsibly way.
 export default Home;

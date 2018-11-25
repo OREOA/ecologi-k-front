@@ -147,7 +147,7 @@ class Home extends Component {
             <div className="App">
                 <div className="content">
                     <div className={'card'}>
-                        <p>How you have eaten in last 30 days</p>
+                        <p>Your purchases over the last month</p>
                         <RadialChart className={'chart'}
                                      data={this.state.data}
                                      animation
@@ -157,7 +157,7 @@ class Home extends Component {
                                      showLabels={true}
                         />
                         <div className={'explanations'}>
-                            <p>Origin of the food</p>
+                            <p>Origin region</p>
                             <div className="explanation-container">
                                 <div className='square1'></div>
                                 <p className='explanation-text'>Domestic</p>
@@ -175,7 +175,7 @@ class Home extends Component {
 
                     </div>
                     <div className={'card'}>
-                        <p>Select comparable group</p>
+                        <p>Select comparision group</p>
                         <select className='dropdown' onChange={this.handleSelect}>
                             <option value="18-24">Ages 18-24</option>
                             <option value="25-34">Ages 25-34</option>
@@ -206,7 +206,7 @@ class Home extends Component {
 
                         )}
                         <div className={'explanations'}>
-                            <p>Origin of the food</p>
+                            <p>Origin region</p>
                             <div className="explanation-container">
                                 <div className='square1'></div>
                                 <p className='explanation-text'>Domestic</p>
