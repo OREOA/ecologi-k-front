@@ -168,8 +168,6 @@ class Home extends Component {
                                 loading={!this.state.ready}
                             />
                             <p>Your purchases in {this.state.month} </p>
-                            <p>Best domestic score: {(bestDomesticScore*10).toFixed(1)} % </p>
-
 
                             <div className={'chartcontainer'}>
                                     <div className='arrowContainer'>
@@ -223,6 +221,7 @@ class Home extends Component {
                                     </div>
                                 </div>
                             )}
+                            <p>Your best domestic score: {(bestDomesticScore*10).toFixed(1)} % </p>
                         </div>
                     )}
                     <div className={'info'}>
